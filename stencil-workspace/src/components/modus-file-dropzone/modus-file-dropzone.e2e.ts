@@ -74,17 +74,20 @@ describe('modus-file-dropzone', () => {
 
     // Check the dropzone state, it should still contain only 1 file due to max-file-count="1"
     files = await dropzone.callMethod('getFiles');
-    expect(files.length).toBe(2); // The second file should not be added
+    expect(files.length).toBe(1); // The second file should not be added
+
+    await page.waitForChanges();
 
     // Find and click the existing reset button
-    const resetButton = await page.find('modus-file-dropzone >>> modus-button');
 
-    await page.waitForTimeout(2000);
+    await page.$eval('modus-file-dropzone', (elm: HTMLModusFileDropzoneElement) => {
+      elm.shadowRoot.querySelector('modus-button').click();
+    });
 
-    await resetButton.click();
-
+    await page.waitForChanges();
     // Check if the dropzone is empty after reset
     files = await dropzone.callMethod('getFiles');
+
     expect(files.length).toBe(0); // No files should be present after reset
   });
 });

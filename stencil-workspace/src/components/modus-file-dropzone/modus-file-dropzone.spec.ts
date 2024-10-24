@@ -110,7 +110,7 @@ describe('modus-file-dropzone', () => {
                 <path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12.0134,12.0134,0,0,1,16,28Z"></path>
               </svg>
              <div class="error-messages" role="alert">
-               <modus-button button-style="outline" color="secondary">
+               <modus-button class="reset-button" button-style="outline" color="secondary">
                  Reset
                </modus-button>
              </div>
@@ -144,7 +144,7 @@ describe('modus-file-dropzone', () => {
                 <path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12.0134,12.0134,0,0,1,16,28Z"></path>
               </svg>
              <div class="error-messages" role="alert">
-               <modus-button button-style="outline" color="secondary">
+               <modus-button class="reset-button" button-style="outline" color="secondary">
                  Reset
                </modus-button>
              </div>
@@ -178,7 +178,7 @@ describe('modus-file-dropzone', () => {
                 <path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12.0134,12.0134,0,0,1,16,28Z"></path>
               </svg>
              <div class="error-messages" role="alert">
-               <modus-button button-style="outline" color="secondary">
+               <modus-button class="reset-button" button-style="outline" color="secondary">
                  Reset
                </modus-button>
              </div>
@@ -211,7 +211,7 @@ describe('modus-file-dropzone', () => {
                 <path d="M16,2A14,14,0,1,0,30,16,14.0158,14.0158,0,0,0,16,2Zm0,26A12,12,0,1,1,28,16,12.0134,12.0134,0,0,1,16,28Z"></path>
               </svg>
              <div class="error-messages" role="alert">
-               <modus-button button-style="outline" color="secondary">
+               <modus-button class="reset-button" button-style="outline" color="secondary">
                  Reset
                </modus-button>
              </div>

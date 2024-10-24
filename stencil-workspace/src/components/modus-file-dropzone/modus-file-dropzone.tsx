@@ -67,9 +67,19 @@ export class ModusFileDropzone {
     }
   }
 
+  private canAddFile() {
+    if (this.maxFileCount && this.maxFileCount <= this.dropzoneFiles.length) {
+      this.error = 'maxFileCount';
+      this.errorMessageTop = `You can only upload ${this.maxFileCount} ${this.maxFileCount > 1 ? 'files' : 'file'}.`;
+      return false;
+    }
+    return true;
+  }
+
   /** Add a file to the dropzone. */
   @Method()
   async addFile(file: File): Promise<void> {
+    if(!this.canAddFile()) return;
     this.dropzoneFiles.push(file);
     this.updateDropzoneState();
     this.files.emit([this.dropzoneFiles, this.error]);
@@ -125,6 +135,8 @@ export class ModusFileDropzone {
     }
     this.fileDraggedOver = false;
     event.preventDefault();
+
+    if(!this.canAddFile()) return;
 
     this.dropzoneFiles = [...this.dropzoneFiles, ...Array.from(event.dataTransfer.files)];
     this.updateDropzoneState();
@@ -232,7 +244,7 @@ export class ModusFileDropzone {
               <div class="error-messages" role="alert">
                 {this.errorMessageTop && <span>{this.errorMessageTop}</span>}
                 {this.errorMessageBottom && <span>{this.errorMessageBottom}</span>}
-                <modus-button button-style="outline" color="secondary" onClick={this.reset}>
+                <modus-button class="reset-button" button-style="outline" color="secondary" onClick={this.reset}>
                   Reset
                 </modus-button>
               </div>
